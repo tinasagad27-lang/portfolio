@@ -1,616 +1,554 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Christina Hito Sagad | Professional Portfolio</title>
+
+    <title>Christina Hito Sagad | Portfolio</title>
+
     
+
     <!-- Fonts & Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@400;700;800&display=swap" rel="stylesheet">
+
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <link rel="stylesheet" href="css/main.css">
+
+
+
+
+
     <style>
-        /* Professional Theme Variables (Corporate / Slate Palette) */
-        :root {
-            --bg-color: #f8fafc;
-            --surface-color: #ffffff;
-            --text-main: #1e293b;
-            --text-muted: #64748b;
-            --primary: #0f172a;
-            --accent: #2563eb;
-            --border-color: #e2e8f0;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-            --transition: all 0.3s ease;
-        }
 
-        [data-theme="dark"] {
-            --bg-color: #0b0f19;
-            --surface-color: #111827;
-            --text-main: #f1f5f9;
-            --text-muted: #94a3b8;
-            --primary: #f8fafc;
-            --accent: #3b82f6;
-            --border-color: #1f2937;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
-        }
+      
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
-            transition: var(--transition);
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: var(--surface-color);
-            border-bottom: 1px solid var(--border-color);
-            z-index: 1000;
-            height: 70px;
-            display: flex;
-            align-items: center;
-            transition: var(--transition);
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-        }
-
-        .logo {
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: var(--primary);
-            text-decoration: none;
-            letter-spacing: 0.5px;
-        }
-
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-
-        #theme-toggle {
-            background: none;
-            border: 1px solid var(--border-color);
-            color: var(--text-main);
-            padding: 0.5rem;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        #theme-toggle:hover {
-            background-color: var(--border-color);
-        }
-
-        /* Header Section */
-        header {
-            padding: 120px 0 60px 0;
-            text-align: center;
-        }
-
-        .profile-wrapper {
-            margin-bottom: 1.5rem;
-        }
-
-        .profile-img {
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--border-color);
-            box-shadow: var(--shadow);
-        }
-
-        .role-tag {
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--accent);
-            margin-bottom: 0.5rem;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        /* Sections */
-        section {
-            padding: 40px 0;
-        }
-
-        .section-header {
-            margin-bottom: 2.5rem;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 0.75rem;
-        }
-
-        .section-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--primary);
-        }
-
-        .section-title span {
-            color: var(--accent);
-            font-family: monospace;
-            margin-right: 0.5rem;
-        }
-
-        /* Timeline */
-        .timeline {
-            position: relative;
-            padding-left: 2rem;
-            border-left: 2px solid var(--border-color);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 2.5rem;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -2.39rem;
-            top: 5px;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-color: var(--accent);
-            border: 2px solid var(--surface-color);
-        }
-
-        .timeline-date {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--accent);
-            display: inline-block;
-            margin-bottom: 0.25rem;
-        }
-
-        .timeline-content h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--primary);
-        }
-
-        .timeline-subtitle {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-content p {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-        }
-
-        /* Skills Section */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .skill-item {
-            background-color: var(--surface-color);
-            border: 1px solid var(--border-color);
-            padding: 1rem;
-            text-align: center;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: var(--transition);
-            box-shadow: var(--shadow);
-        }
-
-        .skill-item:hover, .skill-item.active {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-
-        .skill-item i {
-            display: block;
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .skill-desc-container {
-            background-color: var(--surface-color);
-            border: 1px solid var(--border-color);
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            display: none;
-        }
-
-        /* Projects Section */
-        .video-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .video-box {
-            position: relative;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-            background-color: var(--surface-color);
-            display: block;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .video-box:hover {
-            transform: translateY(-3px);
-        }
-
-        .video-box img {
-            width: 100%;
-            height: 160px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .video-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.4);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: var(--transition);
-            color: #ffffff;
-        }
-
-        .video-box:hover .video-overlay {
-            opacity: 1;
-        }
-
-        /* Contact Section */
-        .contact-card {
-            background-color: var(--surface-color);
-            border: 1px solid var(--border-color);
-            padding: 2.5rem;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: var(--shadow);
-        }
-
-        .contact-card h2 {
-            font-size: 1.8rem;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .contact-links-grid {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-btn {
-            text-decoration: none;
-            padding: 0.6rem 1.2rem;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            border: 1px solid var(--border-color);
-            color: var(--text-main);
-            background-color: var(--bg-color);
-            transition: var(--transition);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .contact-btn:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-
-        /* Footer */
-        footer {
-            border-top: 1px solid var(--border-color);
-            padding: 2rem 0;
-            text-align: center;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-top: 2rem;
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-        }
     </style>
+
 </head>
+
 <body data-theme="light">
 
+
+
     <!-- Navigation Bar -->
+
     <nav>
+
         <div class="container nav-container">
+
             <a href="#" class="logo">CHRISTINA H. SAGAD</a>
+
             <ul class="nav-links">
+
                 <li><a href="#experience">Experience</a></li>
+
                 <li><a href="#skills">Skills</a></li>
+
                 <li><a href="#projects">Projects</a></li>
+
                 <li><a href="#contact">Contact</a></li>
+
             </ul>
+
             <button id="theme-toggle" title="Switch Theme">
+
                 <i class="fas fa-moon"></i>
+
             </button>
+
         </div>
+
     </nav>
 
+
+
     <!-- Header Section -->
+
     <header class="container">
+
         <div class="profile-wrapper" data-aos="zoom-in">
+
+            <!-- <img id="profile-img" src="https://chrstnwbst.ct.ws/images/christina.jpg" alt="Christina Sagad" class="profile-img"> -->
+
              <img id="profile-img" src="images/christina.jpg" alt="Christina Sagad" class="profile-img">
+
         </div>
+
         <p class="role-tag" data-aos="fade-up">Moodle Coordinator | Web Developer | Robotics Instructor</p>
-        <h1 data-aos="fade-up" data-aos-delay="100">Christina Hito Sagad</h1>
+
+        <h1 class="name-gradient" data-aos="fade-up" data-aos-delay="100">Christina Hito Sagad</h1>
+
+        <!-- <p class="header-bio" data-aos="fade-up" data-aos-delay="200">
+
+            Dedicated technology professional specializing in LMS management, full-stack development, and empowering the next generation through robotics education.
+
+        </p> -->
+
     </header>
 
+
+
     <!-- Professional Journey Section -->
+
     <section id="experience" class="container">
+
         <div class="section-header" data-aos="fade-up">
+
             <h2 class="section-title"><span>/01</span> Professional Journey</h2>
+
         </div>
+
         
+
         <div class="timeline">
+
             <!-- 2025 -->
+
             <div class="timeline-item" data-aos="fade-up">
+
                 <span class="timeline-date">2025</span>
+
                 <div class="timeline-content">
+
                     <h3>Robotics Instructor (Workshop)</h3>
+
                     <span class="timeline-subtitle">STEM Mentorship</span>
+
                     <p>Conducted an engaging Robotics Workshop for kids, introducing them to logic, electronics, and hands-on robot building.</p>
+
                 </div>
+
             </div>
+
+
 
             <!-- 2025 - Present -->
+
             <div class="timeline-item" data-aos="fade-up">
+
                 <span class="timeline-date">2025 - PRESENT</span>
+
                 <div class="timeline-content">
+
                     <h3>Moodle Coordinator & Web Developer Associate</h3>
+
                     <span class="timeline-subtitle">Part-time Instructor | Immaculate Conception I-College</span>
+
                     <p>Lead Coordinator for ICP branches. In charge of Moodle orientations, training teachers, and developing web-based systems including the ICP Ticketing System.</p>
+
                 </div>
+
             </div>
+
+
 
             <!-- 2023 - 2024 -->
+
             <div class="timeline-item" data-aos="fade-up">
+
                 <span class="timeline-date">2023 - 2024</span>
+
                 <div class="timeline-content">
+
                     <h3>Moodle Associate</h3>
+
                     <span class="timeline-subtitle">LMS Administration</span>
+
                     <p>Official Moodle Administrator for ICP. Facilitated seminars and enhanced LMS accessibility and workflows for faculty and students.</p>
+
                 </div>
+
             </div>
+
+
 
             <!-- 2020 - 2023 -->
+
             <div class="timeline-item" data-aos="fade-up">
+
                 <span class="timeline-date">2020 - 2023</span>
+
                 <div class="timeline-content">
+
                     <h3>Help Desk Officer</h3>
+
                     <span class="timeline-subtitle">IT Operations Support</span>
+
                     <p>Served as Assistant Help Desk Officer supporting IT operations during the pandemic. Coordinated system requests and technical concerns with the IT Chief.</p>
+
                 </div>
+
             </div>
+
+
 
             <!-- 2019 - 2020 -->
+
             <div class="timeline-item" data-aos="fade-up">
+
                 <span class="timeline-date">2019 - 2020</span>
+
                 <div class="timeline-content">
+
                     <h3>Library Assistant</h3>
+
                     <span class="timeline-subtitle">Outstanding Performance Awardee</span>
+
                     <p>Worked as a Library Assistant right after graduating from senior high school. Received the “Trabaho Before Graduation Award” for excellence.</p>
+
                 </div>
+
             </div>
+
+
 
             <!-- 2018 -->
+
             <div class="timeline-item" data-aos="fade-up">
+
                 <span class="timeline-date">2018</span>
+
                 <div class="timeline-content">
+
                     <h3>On-The-Job Training (Intern)</h3>
+
                     <span class="timeline-subtitle">Psychology Dept & Library</span>
+
                     <p>Assisted in the Psychology Department and Library at Immaculate Conception I-College of Arts & Technology, organizing resources and supporting department tasks.</p>
+
                 </div>
+
             </div>
+
         </div>
+
     </section>
+
+
 
     <!-- Skills Section -->
+
     <section id="skills" class="container">
+
         <div class="section-header" data-aos="fade-up">
+
             <h2 class="section-title"><span>/02</span> Core Competencies</h2>
+
         </div>
+
         
+
         <div class="skills-grid">
-            <div class="skill-item" onclick="showSkill('moodle', event)" data-aos="fade-up"><i class="fas fa-graduation-cap"></i> Moodle</div>
-            <div class="skill-item" onclick="showSkill('python', event)" data-aos="fade-up" data-aos-delay="50"><i class="fab fa-python"></i> Python</div>
-            <div class="skill-item" onclick="showSkill('django', event)" data-aos="fade-up" data-aos-delay="100"><i class="fas fa-cubes"></i> Django</div>
-            <div class="skill-item" onclick="showSkill('php', event)" data-aos="fade-up" data-aos-delay="150"><i class="fab fa-php"></i> PHP</div>
-            <div class="skill-item" onclick="showSkill('db', event)" data-aos="fade-up" data-aos-delay="200"><i class="fas fa-database"></i> MariaDB</div>
-            <div class="skill-item" onclick="showSkill('web', event)" data-aos="fade-up" data-aos-delay="250"><i class="fas fa-code"></i> Full Stack</div>
+
+            <div class="skill-item" onclick="showSkill('moodle')" data-aos="fade-up"><i class="fas fa-graduation-cap"></i> Moodle</div>
+
+            <div class="skill-item" onclick="showSkill('python')" data-aos="fade-up" data-aos-delay="50"><i class="fab fa-python"></i> Python</div>
+
+            <div class="skill-item" onclick="showSkill('django')" data-aos="fade-up" data-aos-delay="100"><i class="fas fa-cubes"></i> Django</div>
+
+            <div class="skill-item" onclick="showSkill('php')" data-aos="fade-up" data-aos-delay="150"><i class="fab fa-php"></i> PHP</div>
+
+            <div class="skill-item" onclick="showSkill('db')" data-aos="fade-up" data-aos-delay="200"><i class="fas fa-database"></i> MariaDB</div>
+
+            <div class="skill-item" onclick="showSkill('web')" data-aos="fade-up" data-aos-delay="250"><i class="fas fa-code"></i> Full Stack</div>
+
         </div>
+
+
 
         <div id="skill-desc-container" class="skill-desc-container">
-            <h4 id="skill-title" style="margin-bottom: 0.5rem; color: var(--accent);">Skill</h4>
-            <p id="skill-text" style="color: var(--text-muted);">Click a skill to see more details.</p>
+
+            <h4 id="skill-title" style="margin-bottom: 0.5rem; color: var(--primary);">Skill</h4>
+
+            <p id="skill-text">Click a skill to see more details.</p>
+
         </div>
+
     </section>
+
+
 
     <!-- Projects Section -->
+
     <section id="projects" class="container">
+
         <div class="section-header" data-aos="fade-up">
+
             <h2 class="section-title"><span>/03</span> Featured Projects</h2>
+
         </div>
+
         
+
         <div class="video-container">
-            <!-- Video 1 -->
-            <a href="https://www.youtube.com/watch?v=qc9cYNfEHzU" target="_blank" class="video-box" data-aos="fade-up">
-                <img src="https://img.youtube.com/vi/qc9cYNfEHzU/maxresdefault.jpg" alt="Robotics Workshop">
-                <div class="video-overlay"><i class="fab fa-youtube fa-2x"></i></div>
-            </a>
-            
-            <!-- Video 2 -->
-            <a href="https://www.youtube.com/watch?v=HvydW4MnIyc" target="_blank" class="video-box" data-aos="fade-up" data-aos-delay="100">
-                <img src="https://img.youtube.com/vi/HvydW4MnIyc/maxresdefault.jpg" alt="LMS Tutorial">
-                <div class="video-overlay"><i class="fab fa-youtube fa-2x"></i></div>
-            </a>
-            
-            <!-- Video 3 -->
-            <a href="https://www.youtube.com/watch?v=UeAlF5SX1uM" target="_blank" class="video-box" data-aos="fade-up" data-aos-delay="200">
-                <img src="https://img.youtube.com/vi/UeAlF5SX1uM/maxresdefault.jpg" alt="System Demo">
-                <div class="video-overlay"><i class="fab fa-youtube fa-2x"></i></div>
-            </a>
-            
-            <!-- Video 4 -->
-            <a href="https://youtu.be/I0sM2yGmzPQ" target="_blank" class="video-box" data-aos="fade-up" data-aos-delay="300">
-                <img src="https://img.youtube.com/vi/I0sM2yGmzPQ/maxresdefault.jpg" alt="Workshop Highlights">
-                <div class="video-overlay"><i class="fab fa-youtube fa-2x"></i></div>
-            </a>
-            
-            <!-- Video 5 -->
-            <a href="https://youtu.be/DPn2M9bDcyg" target="_blank" class="video-box" data-aos="fade-up" data-aos-delay="400">
-                <img src="https://img.youtube.com/vi/DPn2M9bDcyg/maxresdefault.jpg" alt="Demo Project">
-                <div class="video-overlay"><i class="fab fa-youtube fa-2x"></i></div>
-            </a>
-            
-            <!-- Image Project -->
-            <a href="#" target="_blank" class="video-box" data-aos="fade-up" data-aos-delay="500">
-                <img src="images/image.png" alt="Ticketing system">
-                <div class="video-overlay"><i class="fas fa-external-link-alt fa-2x"></i></div>
-            </a>
-        </div>
+
+    <!-- Video 1 -->
+
+    <a href="https://www.youtube.com/watch?v=qc9cYNfEHzU" target="_blank" class="video-box" data-aos="fade-up">
+
+        <img src="https://img.youtube.com/vi/qc9cYNfEHzU/maxresdefault.jpg" alt="Robotics Workshop">
+
+        <div class="video-overlay"><i class="fab fa-youtube fa-3x"></i></div>
+
+    </a>
+
+    
+
+    <!-- Video 2 -->
+
+    <a href="https://www.youtube.com/watch?v=HvydW4MnIyc" target="_blank" class="video-box" data-aos="fade-up" data-aos-delay="100">
+
+        <img src="https://img.youtube.com/vi/HvydW4MnIyc/maxresdefault.jpg" alt="LMS Tutorial">
+
+        <div class="video-overlay"><i class="fab fa-youtube fa-3x"></i></div>
+
+    </a>
+
+    
+
+    <!-- Video 3 -->
+
+    <a href="https://www.youtube.com/watch?v=UeAlF5SX1uM" target="_blank" class="video-box" data-aos="fade-up" data-aos-delay="200">
+
+        <img src="https://img.youtube.com/vi/UeAlF5SX1uM/maxresdefault.jpg" alt="System Demo">
+
+        <div class="video-overlay"><i class="fab fa-youtube fa-3x"></i></div>
+
+    </a>
+
+    
+
+    <!-- Video 4 -->
+
+    <a href="https://youtu.be/I0sM2yGmzPQ" target="_blank" class="video-box" data-aos="fade-up" data-aos-delay="300">
+
+        <img src="https://img.youtube.com/vi/I0sM2yGmzPQ/maxresdefault.jpg" alt="Workshop Highlights">
+
+        <div class="video-overlay"><i class="fab fa-youtube fa-3x"></i></div>
+
+    </a>
+
+    
+
+    <!-- Video 5 -->
+
+    <a href="https://youtu.be/DPn2M9bDcyg" target="_blank" class="video-box" data-aos="fade-up" data-aos-delay="400">
+
+        <img src="https://img.youtube.com/vi/DPn2M9bDcyg/maxresdefault.jpg" alt="Demo Project">
+
+        <div class="video-overlay"><i class="fab fa-youtube fa-3x"></i></div>
+
+    </a>
+
+            <a href="#" target="_blank" class="video-box" data-aos="fade-up">
+
+    <!-- <img src="https://chrstnwbst.ct.ws/images/image.png" alt="Ticketing system"> -->
+
+     <img src="images/image.png" alt="Ticketing system">
+
+</a>
+
+
+
+
+
+</div>
+
+
+
     </section>
+
+<br>
+
+<br>
 
     <!-- Contact Section -->
+
     <section id="contact" class="container">
+
         <div class="contact-card" data-aos="zoom-in">
-            <h2>Let's Work Together</h2>
-            <p style="color: var(--text-muted); max-width: 450px; margin: 0.5rem auto 0 auto; font-size: 0.95rem;">I am open for collaborations in Web Development and Moodle LMS.</p>
+
+            <h2 class="name-gradient" style="font-size: 2.5rem;">Let's Work Together</h2>
+
+            <p style="color: var(--secondary); max-width: 550px; margin: 0 auto;">I am open for collaborations in Web Development and Moodle LMS.</p>
+
             
+
             <div class="contact-links-grid">
-                <a href="mailto:chrstnsgd10@gmail.com" class="contact-btn"><i class="fas fa-envelope"></i> Email</a>
-                <a href="https://www.linkedin.com/in/chrstnsgd/" target="_blank" class="contact-btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                <a href="https://github.com/tinasagad27-lang" target="_blank" class="contact-btn"><i class="fab fa-github"></i> GitHub</a>
-                <a href="https://www.facebook.com/chrstnsgd1/" target="_blank" class="contact-btn"><i class="fab fa-facebook"></i> Facebook</a>
+
+                <a href="mailto:chrstnsgd10@gmail.com" class="contact-btn email-btn"><i class="fas fa-envelope"></i> Email</a>
+
+                <a href="https://www.linkedin.com/in/chrstnsgd/" target="_blank" class="contact-btn linkedin-btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+
+                <a href="https://github.com/tinasagad27-lang" target="_blank" class="contact-btn github-btn"><i class="fab fa-github"></i> GitHub</a>
+
+                <a href="https://www.facebook.com/chrstnsgd1/" target="_blank" class="contact-btn facebook-btn"><i class="fab fa-facebook"></i> Facebook</a>
+
             </div>
+
         </div>
+
     </section>
 
+<br>
+
+    <br>
+
     <footer>
+
         <div class="container">
-            <p>&copy; 2026 Christina Hito Sagad. All rights reserved.</p>
+
+            <p>&copy; 2026 Christina Hito Sagad</p>
+
         </div>
+
     </footer>
 
+
+
     <!-- Scripts -->
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <script>
-        AOS.init({ duration: 800, once: true });
 
-        const skillData = {
-            moodle: { title: "Moodle LMS", desc: "Expert in site administration, teacher training, and optimizing learning management systems for academic institutions." },
-            python: { title: "Python Development", desc: "Automating workflows and building backend logic using Python for data processing and web services." },
-            django: { title: "Django Framework", desc: "Full-stack development experience building secure and scalable web platforms using Django." },
-            php: { title: "PHP Programming", desc: "Building dynamic web applications and managing server-side scripts for legacy and modern systems." },
-            db: { title: "Database Management", desc: "Designing and managing relational databases with MariaDB and MySQL for robust data storage." },
-            web: { title: "Full Stack Development", desc: "Crafting end-to-end web experiences, focusing on clean code, responsiveness, and performance." }
-        };
+    AOS.init({ duration: 800, once: true });
 
-        function showSkill(key, event) {
-            const container = document.getElementById('skill-desc-container');
-            const title = document.getElementById('skill-title');
-            const text = document.getElementById('skill-text');
-            
-            document.querySelectorAll('.skill-item').forEach(i => i.classList.remove('active'));
-            event.currentTarget.classList.add('active');
-            
-            container.style.display = 'block';
-            title.innerText = skillData[key].title;
-            text.innerText = skillData[key].desc;
+
+
+    const skillData = {
+
+        moodle: { title: "Moodle LMS", desc: "Expert in site administration, teacher training, and optimizing learning management systems for academic institutions." },
+
+        python: { title: "Python Development", desc: "Automating workflows and building backend logic using Python for data processing and web services." },
+
+        django: { title: "Django Framework", desc: "Full-stack development experience building secure and scalable web platforms using Django." },
+
+        php: { title: "PHP Programming", desc: "Building dynamic web applications and managing server-side scripts for legacy and modern systems." },
+
+        db: { title: "Database Management", desc: "Designing and managing relational databases with MariaDB and MySQL for robust data storage." },
+
+        web: { title: "Full Stack Development", desc: "Crafting end-to-end web experiences, focusing on clean code, responsiveness, and performance." }
+
+    };
+
+
+
+    function showSkill(key) {
+
+        const container = document.getElementById('skill-desc-container');
+
+        const title = document.getElementById('skill-title');
+
+        const text = document.getElementById('skill-text');
+
+        
+
+        document.querySelectorAll('.skill-item').forEach(i => i.classList.remove('active'));
+
+        event.currentTarget.classList.add('active');
+
+        
+
+        container.style.display = 'block';
+
+        title.innerText = skillData[key].title;
+
+        text.innerText = skillData[key].desc;
+
+    }
+
+
+
+    // Theme Management with Profile Image Swap
+
+    const themeToggle = document.getElementById('theme-toggle');
+
+    const icon = themeToggle.querySelector('i');
+
+    const html = document.documentElement;
+
+    const profileImg = document.getElementById('profile-img');
+
+
+
+    function updateTheme(isDark) {
+
+        html.setAttribute('data-theme', isDark ? 'dark' : 'light');
+
+        icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+
+        // Change profile image based on theme
+
+       
+
+    profileImg.src = isDark
+
+            ? 'images/christina-dark.png' // Dark mode image
+
+            : 'images/christina.jpg';     // Light mode image
+
+    }
+
+
+
+    themeToggle.addEventListener('click', () => {
+
+        const isDark = html.getAttribute('data-theme') === 'dark';
+
+        const nextMode = !isDark;
+
+        updateTheme(nextMode);
+
+        localStorage.setItem('pref-theme', nextMode ? 'dark' : 'light');
+
+    });
+
+
+
+    // Load saved theme
+
+    const savedTheme = localStorage.getItem('pref-theme') || 'light';
+
+    updateTheme(savedTheme === 'dark');
+
+
+
+    // Nav Scroll Effect
+
+    window.addEventListener('scroll', () => {
+
+        const nav = document.querySelector('nav');
+
+        if(window.scrollY > 50) {
+
+            nav.style.height = '60px';
+
+            nav.style.boxShadow = 'var(--shadow)';
+
+        } else {
+
+            nav.style.height = '70px';
+
+            nav.style.boxShadow = 'none';
+
         }
 
-        // Theme Management
-        const themeToggle = document.getElementById('theme-toggle');
-        const icon = themeToggle.querySelector('i');
-        const html = document.documentElement;
-        const profileImg = document.getElementById('profile-img');
+    });
 
-        function updateTheme(isDark) {
-            html.setAttribute('data-theme', isDark ? 'dark' : 'light');
-            icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
-            
-            // Optional image swap kung meron kang dark mode image, kung wala ay mananatili
-            if(profileImg) {
-                profileImg.src = isDark ? 'images/christina-dark.png' : 'images/christina.jpg';
-            }
-        }
+</script>
 
-        themeToggle.addEventListener('click', () => {
-            const isDark = html.getAttribute('data-theme') === 'dark';
-            const nextMode = !isDark;
-            updateTheme(nextMode);
-            localStorage.setItem('pref-theme', nextMode ? 'dark' : 'light');
-        });
 
-        // Load saved theme
-        const savedTheme = localStorage.getItem('pref-theme') || 'light';
-        updateTheme(savedTheme === 'dark');
-    </script>
+
 </body>
-</html>
+
+</html> 
+
