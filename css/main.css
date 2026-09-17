@@ -1,17 +1,14 @@
-/* ==========================================
-   CLEAN & PROFESSIONAL DARK PORTFOLIO STYLES
-   ========================================== */
 
 :root {
     --bg-main: #0c0d0e;
     --bg-card: #141619;
     --border-color: #272a30;
     
-    /* Malinaw at nababasang kulay ng fonts (hindi madilim/AI gray) */
+ 
     --text-primary: #ffffff;
     --text-secondary: #e2e8f0;
     --text-muted: #94a3b8;
-    --accent-blue: #38bdf8; /* Para sa importante at malinaw na highlights */
+    --accent-blue: #38bdf8;
     
     --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
@@ -37,14 +34,15 @@ body {
     padding: 0 1.5rem;
 }
 
-/* --- NAVIGATION BAR --- */
+
 nav {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(12, 13, 14, 0.95);
-    border-bottom: 1px solid var(--border-color);
+    height: 70px; 
+    background-color: #0c0d0e;
+    border-bottom: 1px solid #272a30;
     z-index: 1000;
 }
 
@@ -52,7 +50,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 70px;
+    height: 100%;
 }
 
 .logo {
@@ -81,18 +79,27 @@ nav {
     color: var(--text-primary);
 }
 
-/* --- HERO / HEADER SECTION (INAYOS ANG SPACING DITO) --- */
 header {
-    /* Dagdag espasyo sa taas para HINDI na matakpan ng fixed nav ang larawan */
+   
     padding-top: 140px; 
     padding-bottom: 60px;
     text-align: center;
 }
+header.hero-header {
+    
+    padding-top: 110px !important; 
+    padding-bottom: 40px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
 
 .profile-wrapper {
-    margin-bottom: 1.5rem;
     display: flex;
     justify-content: center;
+    align-items: center;
+    margin-bottom: 24px;
+    width: 100%;
 }
 
 .profile-img {
@@ -100,8 +107,7 @@ header {
     height: 130px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid var(--border-color);
-    display: block;
+    border: 3px solid #272a30;
 }
 
 .role-tag {
@@ -120,10 +126,9 @@ h1.name-title {
     letter-spacing: -0.5px;
 }
 
-/* --- SECTIONS (MAY TAMANG DISTANSYA NA) --- */
+
 section {
-    padding: 60px 0; /* Sinisiguradong may hiwalay at hindi magkakadikit */
-}
+    padding: 60px 0; 
 
 .section-header {
     margin-bottom: 2rem;
@@ -142,7 +147,7 @@ section {
     margin-right: 0.5rem;
 }
 
-/* --- EXPERIENCE TIMELINE --- */
+
 .timeline {
     display: flex;
     flex-direction: column;
@@ -173,7 +178,6 @@ section {
     margin-bottom: 0.25rem;
 }
 
-/* Inayos: Malinaw at White-Slate na kulay sa pangalan ng Eskwelahan/Kompanya */
 .timeline-subtitle {
     display: block;
     color: var(--text-secondary);
@@ -188,9 +192,9 @@ section {
     line-height: 1.6;
 }
 
-/* --- PROJECTS / PORTFOLIO GRID --- */
+
 #projects {
-    padding-bottom: 80px; /* Dagdag padding para hindi sumiksik sa Contact Section */
+    padding-bottom: 80px; 
 }
 
 .video-container {
@@ -215,9 +219,9 @@ section {
     object-fit: cover;
 }
 
-/* --- CONTACT SECTION (LET'S WORK TOGETHER - INAYOS ANG MARGIN) --- */
+
 #contact {
-    margin-top: 40px; /* Tiyak na may malaking hiwalay mula sa projects sa itaas */
+    margin-top: 40px; 
     padding-bottom: 80px;
 }
 
@@ -278,9 +282,7 @@ footer {
     font-size: 0.85rem;
 }
 
-/* ==========================================
-   RESPONSIVE LAYOUT (MOBILE & TABLET FIXES)
-   ========================================== */
+
 
 @media (max-width: 768px) {
     header {
