@@ -7,7 +7,7 @@
     <title>Christina Hito Sagad | Portfolio</title>
 
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -22,6 +22,10 @@
 <nav>
     <div class="nav-container container">
         <a href="#" class="logo">CHRISTINA H. SAGAD</a>
+
+        <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+            <i class="fas fa-bars"></i>
+        </button>
 
         <ul class="nav-links">
             <li><a href="#experience">Experience</a></li>
@@ -398,6 +402,24 @@
         once: true
     });
 
+    const nav = document.querySelector("nav");
+    const navToggle = document.querySelector(".nav-toggle");
+    const navLinks = document.querySelectorAll(".nav-links a");
+
+    navToggle.addEventListener("click", () => {
+        const isOpen = nav.classList.toggle("menu-open");
+        navToggle.setAttribute("aria-expanded", isOpen);
+        navToggle.querySelector("i").className = isOpen ? "fas fa-xmark" : "fas fa-bars";
+    });
+
+    navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            nav.classList.remove("menu-open");
+            navToggle.setAttribute("aria-expanded", "false");
+            navToggle.querySelector("i").className = "fas fa-bars";
+        });
+    });
+
     const skillData = {
         moodle: {
             title: "Moodle LMS",
@@ -445,12 +467,10 @@
     }
 
     window.addEventListener("scroll", () => {
-        const nav = document.querySelector("nav");
-
         if (window.scrollY > 50) {
-            nav.style.height = "60px";
+            nav.classList.add("scrolled");
         } else {
-            nav.style.height = "70px";
+            nav.classList.remove("scrolled");
         }
     });
 </script>
